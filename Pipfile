@@ -1,0 +1,34 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+python-dotenv = "*"
+jinja2 = "*"
+gunicorn = "*"
+flask = "*"
+beautifulsoup4 = "*"
+qrcode = "*"
+flask-qrcode = "*"
+bitcoinrpc = "*"
+mnemonic = "*"
+pycoin = "*"
+bit = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+jsonify = "*"
+bitcoinlib = "*"
+fastecdsa = "*"
+pyaes = "*"
+scrypt = "*"
+requests = "*"
+sqlalchemy = "*"
+pathlib2 = "*"
+six = "*"
+werkzeug = "*"
+
+[requires]
+python_version = "3.8"
