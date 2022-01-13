@@ -28,7 +28,34 @@ simp = Blueprint("simp", __name__)
 
 @simp.route("/", methods=['POST', 'GET'])
 def index():
-    # something something    
+    if request.method == 'POST':
+        if request.form.get('new_wallet') == 'NEW':
+            #wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
+            wallet = PrivateKeyTestnet()
+            wif = wallet.to_wif()
+            address = wallet.segwit_address
+            btc_balance = wallet.get_balance('btc')
+            usd_balance = wallet.balance_as('usd')
+            return render_template('index.html', wif=wif, address=address, btc_balance=btc_balance, usd_balance=usd_balance)
+        elif  request.form.get('receive_btc') == 'RECEIVE':
+            # should show QR code to receive
+            
+            #wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
+            wallet = PrivateKeyTestnet()
+            wif = wallet.to_wif()
+            address = wallet.segwit_address
+            rec_address = address
+            return render_template('index.html', rec_address=rec_address)
+        elif  request.form.get('send_btc'):
+            send_address = 'send to and amount fields populate'
+            amount = 'amount'
+            return render_template('index.html', send_address=send_address, amount=amount)
+        else:
+            message = 'click something'
+            return render_template('test.html', message=message)
+    elif request.method == 'GET':
+        return render_template('index.html')
+ 
     return render_template('index.html')
 
 @simp.route("/test", methods=['GET', 'POST'])
