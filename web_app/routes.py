@@ -35,14 +35,16 @@ def index():
 def test():
     if request.method == 'POST':
         if request.form.get('new_wallet') == 'NEW':
-            wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
+            #wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
+            wallet = PrivateKeyTestnet()
             wif = wallet.to_wif()
             address = wallet.segwit_address
             btc_balance = wallet.get_balance('btc')
             usd_balance = wallet.balance_as('usd')
             return render_template('test.html', wif=wif, address=address, btc_balance=btc_balance, usd_balance=usd_balance)
         elif  request.form.get('receive_btc') == 'RECEIVE':
-            wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
+            #wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
+            wallet = PrivateKeyTestnet()
             wif = wallet.to_wif()
             address = wallet.segwit_address
             rec_address = address
