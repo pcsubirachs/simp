@@ -13,7 +13,7 @@ from bitcoinlib.mnemonic import Mnemonic
 from bitcoinlib.wallets import Wallet
 from bitcoinlib.keys import HDKey
 
-from web_app.models import db, User, Wallet 
+#from web_app.models import db, User, Wallet 
 
 
 #
@@ -39,7 +39,7 @@ def index():
             return render_template('index.html', wif=wif, address=address, btc_balance=btc_balance, usd_balance=usd_balance)
         elif  request.form.get('receive_btc') == 'RECEIVE':
             # should show QR code to receive
-            
+
             #wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
             wallet = PrivateKeyTestnet()
             wif = wallet.to_wif()
