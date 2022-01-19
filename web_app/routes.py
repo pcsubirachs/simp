@@ -26,6 +26,8 @@ simp = Blueprint("simp", __name__)
 # Home
 #
 
+# index home page
+# make it super simple
 @simp.route("/", methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
