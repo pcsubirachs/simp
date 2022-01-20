@@ -29,6 +29,8 @@ sqlalchemy = "*"
 pathlib2 = "*"
 six = "*"
 werkzeug = "*"
+python-bitcoinlib = "*"
+bitcoin = "*"
 
 [requires]
 python_version = "3.8"
