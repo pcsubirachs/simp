@@ -1,12 +1,14 @@
 # using bitcoinlib
 from bitcoinlib.mnemonic import Mnemonic
 from bitcoinlib.wallets import Wallet
+from bitcoinlib.encoding import to_hexstring
 
 # Step 1
 #get mnemonic randomly
 # from bitcoinlib
 mnem = Mnemonic().generate(strength=256, add_checksum=True)
 print(mnem)
+print("HEXSTRING: ", to_hexstring(Mnemonic().to_seed(mnem)))
 
 # Step 2
 #derive btc addresses deterministically
@@ -16,7 +18,7 @@ w = Wallet('simp')
 #print(simp_mnem)
 
 # for loop to generate x amount of addresses
-x = 100
+x = 10
 # for i in range from 0 to x
 for i in range(0, x):
     # generate a key for the w Wallet
@@ -25,6 +27,8 @@ for i in range(0, x):
     address = key.address
     # print the addres
     print(address)
+    # wallet info
+    #print(w.info())
 
 
 # getting one key at a time
@@ -39,3 +43,9 @@ for i in range(0, x):
 addr_list = w.addresslist()[9]
 print('repeat: ', addr_list)
 
+# get wallet info
+#print("WALLET INFO", w.addresslist()[9].info()) # Shows wallet information, keys, transactions and UTXO's
+
+
+
+# implement python-bitcoinlib by peter todd here
