@@ -9,10 +9,6 @@ from flask_qrcode import QRcode
 from bit import PrivateKeyTestnet
 from bit import *
 
-from bitcoinlib.mnemonic import Mnemonic
-from bitcoinlib.wallets import Wallet
-from bitcoinlib.keys import HDKey
-
 #from web_app.models import db, User, Wallet 
 
 
@@ -32,6 +28,8 @@ simp = Blueprint("simp", __name__)
 def index():
     if request.method == 'POST':
         if request.form.get('new_wallet') == 'NEW':
+            # using bit library only...
+
             wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
             #wallet = PrivateKeyTestnet('mznsbBjB47tpnWtEmc1kGyHAEfqMkoQmHJ')
             print('privkey: ', wallet)
