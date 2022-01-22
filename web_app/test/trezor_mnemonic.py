@@ -1,4 +1,4 @@
-from mnemonic import Mnemonic
+from mnemonic import *
 
 #Initialize class instance, picking from available dictionaries:
 #english
@@ -22,6 +22,9 @@ print('words: ', words)
 seed = mnemo.to_seed(words, passphrase="")
 print('seed: ', seed)
 
+# get seed to WIF format for input
+hex_yes = seed.hex()
+print('hex: ', hex_yes)
 #Given the word list, calculate original entropy:
 
 entropy = mnemo.to_entropy(words)
