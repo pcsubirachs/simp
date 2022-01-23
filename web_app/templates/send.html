@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simp</title>
+		<link rel="stylesheet" href="static/assets/css/main.css">
+	</head>
+<body>
+	<!--<h3>Create A Wallet</h3>-->
+    <h2>{{btc_balance}} BTC</h2>
+    <h3>{{usd_balance}} USD</h3>
+        <!--<form action="/send" method="post" style="float:left;">
+        	<input type="submit" value="SEND" name="send_btc">
+        </form>
+	    <form action="/receive" method="post" style="float:right;">
+        	<input type="submit" value="RECEIVE" name="receive_btc">
+        </form>-->
+
+		<form action="/send" method="post">
+            <label>Send to Address</label><br>
+            <input type="text" id="send_to_address" name="send_to_address"><br><br>
+            <label>Amount</label><br>
+            <input type="text" id="amount" name="amount"><br><br>
+            <input type="submit" value="Submit">
+		</form>
+
+		
+</body>
+</html>

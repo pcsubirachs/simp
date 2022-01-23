@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<title>Simp</title>
+		<link rel="stylesheet" href="static/assets/css/main.css">
+
 	</head>
-
 <body>
-	<h2>Sup Simp</h2>
 
-	<h3>Create A Wallet</h3>
-    	<form action="/" method="post">
-        	<input type="submit" value="NEW" name="new_wallet"/>
-        	<p>{{btc_balance}} BTC</p>
-        	<p>{{usd_balance}} USD</p>
-        	<p>Address: {{address}}</p>
-        	<!--<input type="submit" value="RECEIVE" name="receive_btc" />
-        	<p>{{receive}}</p>-->
-        	<img class="center"src="{{ qrcode(address) }}"> <br><br>
-        	<input type="submit" value="SEND" name="send_btc"> 
-			<input type="submit" value="RECEIVE" name="receive_btc">
-        	<p>{{send}}</p>
-            	<label for="send_address">Address:</label>
-            	<input type="text" id="send_address" name="send_address"><br><br>
-            	<label for="amount">Amount:</label>
-            	<input type="text" id="amount" name="amount"><br><br>
-            	<input type="submit" value="Submit">
-    	</form>
+	<h2>{{btc_balance}} BTC</h2>
+    <h3>{{usd_balance}} USD</h3>
 
+    <form action="/send" method="GET" style="float:left;">
+    	<input type="submit" value="SEND" name="send_btc">
+    </form>
+	<form action="/receive" method="GET" style="float:right;">
+    	<input type="submit" value="RECEIVE" name="receive_btc">
+    </form>
+		
 </body>
 </html>

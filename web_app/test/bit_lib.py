@@ -26,7 +26,11 @@ tx_hist = wallet.get_transactions()
 print('transaction history: ', tx_hist)
 
 # create a transaction, then broadcast it
+
+# this creates a tx, but does not broadcast it to the bitcoin network
 #create_tx = wallet.create_transaction([('tb1q2nf9knx0fsdp4glpyxntuxa8slpjjsyhm8ccyh', 0.00004924, 'btc')])
+
+# this creates and broadcasts to the bitcoin network
 create_send = wallet.send([('tb1q2nf9knx0fsdp4glpyxntuxa8slpjjsyhm8ccyh', 0.00004924, 'btc')])
 print("creating tx: ", create_send)
 
