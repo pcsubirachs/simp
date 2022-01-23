@@ -25,8 +25,10 @@ print("utxo's: ", utxos)
 tx_hist = wallet.get_transactions()
 print('transaction history: ', tx_hist)
 
-# send
-
+# create a transaction, then broadcast it
+#create_tx = wallet.create_transaction([('tb1q2nf9knx0fsdp4glpyxntuxa8slpjjsyhm8ccyh', 0.00004924, 'btc')])
+create_send = wallet.send([('tb1q2nf9knx0fsdp4glpyxntuxa8slpjjsyhm8ccyh', 0.00004924, 'btc')])
+print("creating tx: ", create_send)
 
 
 # create new wallet
