@@ -37,7 +37,7 @@ def index():
     btc_balance = wallet.get_balance('btc')
     print('btc balance: ', btc_balance)
     usd_balance = wallet.balance_as('usd')
-    
+
 
     return render_template('index.html', wif=wif, address=address, btc_balance=btc_balance, usd_balance=usd_balance)
 
@@ -58,7 +58,16 @@ def send():
     
     return render_template('send.html', btc_balance=btc_balance, usd_balance=usd_balance)
 
+@simp.route("/receive", methods=['GET', 'POST'])
+def receive():
+    # define this globally at some point
+    wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
+    btc_balance = wallet.get_balance('btc')
+    usd_balance = wallet.balance_as('usd')
+    address = wallet.segwit_address
 
+    
+    return render_template('receive.html', btc_balance=btc_balance, usd_balance=usd_balance, address=address)
 
 
 #@simp.route("/test", methods=['GET', 'POST'])

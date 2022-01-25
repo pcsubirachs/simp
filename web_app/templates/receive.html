@@ -8,9 +8,10 @@
 	<h2>{{btc_balance}} BTC</h2>
     <h3>{{usd_balance}} USD</h3>
     	
-    <img class="center"src="{{ qrcode(address) }}"> <br><br>
+    <img class="center"src="{{ qrcode(address) }}">
+    <h5>{{address}}</h5><br><br>
 
-    <form action="/" method="GET" style="float:left;">
+    <form action="/" method="GET">
     	<input type="submit" value="HOME" name="home">
     </form>
 		
