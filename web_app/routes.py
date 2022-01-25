@@ -41,6 +41,7 @@ def index():
 
     return render_template('index.html', wif=wif, address=address, btc_balance=btc_balance, usd_balance=usd_balance)
 
+# take you to the prompt to send a transaction
 @simp.route("/send", methods=['GET', 'POST'])
 def send():
     # define this globally at some point
@@ -48,15 +49,26 @@ def send():
     btc_balance = wallet.get_balance('btc')
     usd_balance = wallet.balance_as('usd')
 
-    # get user inputs
-    request.form.get('send_to_address') == 'send_to_address'
-    request.form.get('amount') == 'amount'
-    
-    # when user submits form, form action POSTS, action received here, wallet sends input amount
-    if request.method == 'POST':
-        wallet.send([('send_to_address', int('amount'), 'btc')])
-    
     return render_template('send.html', btc_balance=btc_balance, usd_balance=usd_balance)
+
+# allows you to send a transaction
+@simp.route("/tx", methods=['GET', 'POST'])
+def tx():
+    # get user inputs
+    address = request.form.get('send_to_address')
+    #address = 'tb1q45etll6uprcqlt4krd62rfjykvvpzs3y6h92jt'
+    amt = request.form.get('amount')
+    #amt = 0.00003246
+
+    wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
+    btc_balance = wallet.get_balance('btc')
+    usd_balance = wallet.balance_as('usd')
+
+    # creates and broadcasts transaction to network
+    tx_ID = wallet.send([(address, amt, 'btc')])
+    #tx_ID = wallet.send(['tb1q45etll6uprcqlt4krd62rfjykvvpzs3y6h92jt', 0.00003246, 'btc'])
+
+    return render_template('tx.html', tx_ID=tx_ID)
 
 @simp.route("/receive", methods=['GET', 'POST'])
 def receive():
