@@ -49,15 +49,31 @@ def send():
     btc_balance = wallet.get_balance('btc')
     usd_balance = wallet.balance_as('usd')
 
+    if request.method == 'POST':
+
+        #get user inputs
+        #send_to = request.form.get('send_to_address') == 'send_to_address'
+        #amount = request.form.get('amount') == 'amount'
+        if request.form.get('send_tx') == 'SEND':
+            send_to = request.form.get('send_to_address')
+            amount = float(request.form.get('amount'))
+            tx_ID = wallet.send([(send_to, amount, 'btc')])
+            return render_template('tx.html', tx_ID=tx_ID)
+
     return render_template('send.html', btc_balance=btc_balance, usd_balance=usd_balance)
 
 # allows you to send a transaction
 @simp.route("/tx", methods=['GET', 'POST'])
 def tx():
     # get user inputs
-    address = request.form.get('send_to_address')
+    request.form.get('send_to_address') == 'send_to_address'
+    print("aloha: ", request.form['send_to_address'])
+    print("address: ", request.form.get('send_to_address'))
+    print("address type: ", type(request.form.get('send_to_address')))
     #address = 'tb1q45etll6uprcqlt4krd62rfjykvvpzs3y6h92jt'
-    amt = request.form.get('amount')
+    #request.form.get('amount') == 'amount'
+    print("amount: ", request.form.get('amount'))
+    print("amount type: ", type(request.form.get('amount')))
     #amt = 0.00003246
 
     wallet = PrivateKeyTestnet('cSs7bQAxg2cfHaCQbUVkrmbNouCupuabpu9ZWXaXoAT8ak8K3BrE')
@@ -65,7 +81,7 @@ def tx():
     usd_balance = wallet.balance_as('usd')
 
     # creates and broadcasts transaction to network
-    tx_ID = wallet.send([(address, amt, 'btc')])
+    tx_ID = wallet.send([(request.form.get('send_to_address'), request.form.get('amount'), 'btc')])
     #tx_ID = wallet.send(['tb1q45etll6uprcqlt4krd62rfjykvvpzs3y6h92jt', 0.00003246, 'btc'])
 
     return render_template('tx.html', tx_ID=tx_ID)

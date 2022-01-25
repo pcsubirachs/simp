@@ -15,12 +15,12 @@
         	<input type="submit" value="RECEIVE" name="receive_btc">
         </form>-->
 
-		<form action="/tx" method="GET">
+		<form action="/send" method="POST">
             <label>Send to Address</label><br>
             <input type="text" id="send_to_address" name="send_to_address"><br><br>
             <label>Amount</label><br>
-            <input type="text" id="amount" name="amount"><br><br>
-            <input type="submit" value="Submit">
+            <input type="number" step="any" id="amount" name="amount"><br><br>
+            <input type="submit" value="SEND" name="send_tx">
 		</form>
 
         <br><br>
