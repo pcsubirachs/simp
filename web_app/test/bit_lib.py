@@ -31,7 +31,9 @@ print('transaction history: ', tx_hist)
 #create_tx = wallet.create_transaction([('tb1q2nf9knx0fsdp4glpyxntuxa8slpjjsyhm8ccyh', 0.00004924, 'btc')])
 
 # this creates and broadcasts to the bitcoin network
-####!!!!! Unhide these next two lines to send Bitcoin payment
+#########################################################################
+#####***** Unhide these next two lines to send Bitcoin payment *****#####
+#########################################################################
 #create_send = wallet.send([('tb1q2nf9knx0fsdp4glpyxntuxa8slpjjsyhm8ccyh', 0.00004924, 'btc')])
 #print("creating tx: ", create_send)
 

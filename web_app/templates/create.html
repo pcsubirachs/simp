@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simp</title>
+		<link rel="stylesheet" href="static/assets/css/main.css">
+	</head>
+<body>
+
+	<p>Create a new wallet.</p>
+
+    <p>Copy & Paste the WIF into the routes.py file to use.</p>
+
+    <form action="/create" method="POST">
+
+        <input type="submit" value="CREATE NEW" name="create_new">
+
+        <p><b>Private Key:</b> {{wallet_new}}</p>
+        <p><b>WIF:</b> {{wif_new}}</p>
+        <p><b>Address:</b> {{address_new}}</p>
+        <p>{{btc_balance_new}} <b>BTC</b></p>
+        <p>{{usd_balance_new}} <b>USD</b></p>
+
+    </form>
+
+    <br><br>
+    
+    <form action="/" method="GET">
+        <input type="submit" value="HOME" name="home">
+    </form>
+		
+</body>
+</html>
