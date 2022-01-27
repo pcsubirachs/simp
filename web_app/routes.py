@@ -70,3 +70,8 @@ def create():
             return render_template('create.html', wallet_new=wallet_new, wif_new=wif_new, address_new=address_new, btc_balance_new=btc_balance_new, usd_balance_new=usd_balance_new)
 
     return render_template('create.html')
+
+# create an hd wallet
+@simp.route("/create_hd", methods=['GET', 'POST'])
+def create_hd():
+    return render_template('create_hd.html')
